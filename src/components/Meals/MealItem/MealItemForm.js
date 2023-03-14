@@ -5,8 +5,6 @@ import Input from '../../UI/Input';
 const MealItemForm = (props) => {
     const [amountIsValid, setAmountIsValid] = useState(true);
     
-    
-    
     const amountInputRef = useRef();
     const submitHandler = (e) => {
         e.preventDefault();
@@ -21,6 +19,8 @@ const MealItemForm = (props) => {
         ) {
             setAmountIsValid(false);
             return;
+        } else {
+            setAmountIsValid(true);
         }
 
         props.onAddToCart(enteredAmountNumber);
@@ -28,7 +28,6 @@ const MealItemForm = (props) => {
 
     return (
         <form className={classes.form} onSubmit={submitHandler}>
-
             <Input 
                 ref={amountInputRef}
                 label="Amount" 
